@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The City Experiment</title>
+    <link rel="icon" type="image/x-icon" href="pfp.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff;
+            color: #000;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .city-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%);
+            transform: scale(1.0);
+            transform-origin: center bottom;
+        }
+
+        .building {
+            position: absolute;
+            bottom: 120px;
+            background: #fff;
+            border: 4px solid #000;
+            border-radius: 12px;
+        }
+
+        .building1 {
+            left: 20px;
+            width: 140px;
+            height: 250px;
+        }
+
+        .building2 {
+            left: 180px;
+            width: 100px;
+            height: 320px;
+        }
+
+        .building3 {
+            left: 300px;
+            width: 160px;
+            height: 220px;
+        }
+
+        .building4 {
+            left: 480px;
+            width: 120px;
+            height: 380px;
+        }
+
+        .building5 {
+            left: 620px;
+            width: 130px;
+            height: 270px;
+        }
+
+        .building6 {
+            left: 770px;
+            width: 110px;
+            height: 200px;
+        }
+
+        .building7 {
+            left: 900px;
+            width: 150px;
+            height: 300px;
+        }
+
+        .building8 {
+            left: 1070px;
+            width: 100px;
+            height: 250px;
+        }
+
+        .window {
+            position: absolute;
+            background: #e0e0e0;
+            border: 2px solid #000;
+            border-radius: 4px;
+        }
+
+        /* Building 1 windows */
+        .building1 .window {
+            width: 30px;
+            height: 37px;
+        }
+        .building1 .window:nth-child(1) { top: 45px; left: 30px; }
+        .building1 .window:nth-child(2) { top: 45px; right: 30px; }
+        .building1 .window:nth-child(3) { top: 120px; left: 30px; }
+        .building1 .window:nth-child(4) { top: 120px; right: 30px; }
+        .building1 .window:nth-child(5) { top: 195px; left: 30px; }
+        .building1 .window:nth-child(6) { top: 195px; right: 30px; }
+
+        /* Building 2 windows */
+        .building2 .window {
+            width: 22px;
+            height: 30px;
+        }
+        .building2 .window:nth-child(1) { top: 60px; left: 22px; }
+        .building2 .window:nth-child(2) { top: 60px; right: 22px; }
+        .building2 .window:nth-child(3) { top: 150px; left: 22px; }
+        .building2 .window:nth-child(4) { top: 150px; right: 22px; }
+        .building2 .window:nth-child(5) { top: 240px; left: 22px; }
+        .building2 .window:nth-child(6) { top: 240px; right: 22px; }
+        .building2 .window:nth-child(7) { top: 330px; left: 22px; }
+        .building2 .window:nth-child(8) { top: 330px; right: 22px; }
+
+        /* Building 3 windows */
+        .building3 .window {
+            width: 27px;
+            height: 33px;
+        }
+        .building3 .window:nth-child(1) { top: 37px; left: 37px; }
+        .building3 .window:nth-child(2) { top: 37px; left: 90px; }
+        .building3 .window:nth-child(3) { top: 37px; right: 37px; }
+        .building3 .window:nth-child(4) { top: 120px; left: 37px; }
+        .building3 .window:nth-child(5) { top: 120px; left: 90px; }
+        .building3 .window:nth-child(6) { top: 120px; right: 37px; }
+        .building3 .window:nth-child(7) { top: 195px; left: 37px; }
+        .building3 .window:nth-child(8) { top: 195px; right: 37px; }
+
+        /* Similar patterns for other buildings */
+        .building4 .window, .building5 .window, .building6 .window, .building7 .window, .building8 .window {
+            width: 24px;
+            height: 30px;
+        }
+
+        .building4 .window:nth-child(1) { top: 60px; left: 30px; }
+        .building4 .window:nth-child(2) { top: 60px; right: 30px; }
+        .building4 .window:nth-child(3) { top: 150px; left: 30px; }
+        .building4 .window:nth-child(4) { top: 150px; right: 30px; }
+        .building4 .window:nth-child(5) { top: 240px; left: 30px; }
+        .building4 .window:nth-child(6) { top: 240px; right: 30px; }
+        .building4 .window:nth-child(7) { top: 330px; left: 30px; }
+        .building4 .window:nth-child(8) { top: 330px; right: 30px; }
+        .building4 .window:nth-child(9) { top: 420px; left: 30px; }
+        .building4 .window:nth-child(10) { top: 420px; right: 30px; }
+
+        .pavement {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: #888;
+            border-top: 6px solid #000;
+            background-image: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 48px,
+                    #777 48px,
+                    #777 52px
+                ),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 28px,
+                    #777 28px,
+                    #777 32px
+                );
+        }
+
+        .walking-person {
+            position: absolute;
+            bottom: 35px;
+            width: 60px;
+            height: 100px;
+            opacity: 0;
+            animation: walkAcross 12s linear;
+        }
+
+        /* Head */
+        .walking-person::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 28px;
+            height: 32px;
+            background: #ffdbac;
+            border: 2px solid #000;
+            border-radius: 16px 16px 12px 12px;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        /* Body */
+        .walking-person::after {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 50%;
+            width: 24px;
+            height: 35px;
+            background: #4a90e2;
+            border: 2px solid #000;
+            border-radius: 12px 12px 8px 8px;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+
+        /* Hair */
+        .walking-person .hair {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            width: 32px;
+            height: 18px;
+            background: #8b4513;
+            border: 2px solid #000;
+            border-radius: 16px 16px 8px 8px;
+            transform: translateX(-50%);
+            z-index: 8;
+        }
+
+        /* Eyes */
+        .walking-person .eyes {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 16px;
+            height: 4px;
+            transform: translateX(-50%);
+            z-index: 12;
+        }
+
+        .walking-person .eyes::before,
+        .walking-person .eyes::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .walking-person .eyes::before {
+            left: 3px;
+        }
+
+        .walking-person .eyes::after {
+            right: 3px;
+        }
+
+        /* Mouth */
+        .walking-person .mouth {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            width: 8px;
+            height: 3px;
+            background: #000;
+            border-radius: 0 0 8px 8px;
+            transform: translateX(-50%);
+            z-index: 12;
+        }
+
+        /* Arms */
+        .walking-person .arm-left,
+        .walking-person .arm-right {
+            position: absolute;
+            width: 8px;
+            height: 28px;
+            background: #ffdbac;
+            border: 2px solid #000;
+            border-radius: 4px;
+            transform-origin: top center;
+            z-index: 3;
+        }
+
+        .walking-person .arm-left {
+            top: 36px;
+            left: calc(50% - 18px);
+            animation: leftArmWalk 1s ease-in-out infinite;
+        }
+
+        .walking-person .arm-right {
+            top: 36px;
+            left: calc(50% + 10px);
+            animation: rightArmWalk 1s ease-in-out infinite;
+        }
+
+        /* Legs */
+        .walking-person .leg-left,
+        .walking-person .leg-right {
+            position: absolute;
+            width: 10px;
+            height: 32px;
+            background: #2c3e50;
+            border: 2px solid #000;
+            border-radius: 5px;
+            transform-origin: top center;
+            z-index: 4;
+        }
+
+        .walking-person .leg-left {
+            top: 67px;
+            left: calc(50% - 14px);
+            animation: leftLegWalk 1s ease-in-out infinite;
+        }
+
+        .walking-person .leg-right {
+            top: 67px;
+            left: calc(50% + 4px);
+            animation: rightLegWalk 1s ease-in-out infinite;
+        }
+
+        /* Shoes */
+        .walking-person .shoe-left,
+        .walking-person .shoe-right {
+            position: absolute;
+            width: 16px;
+            height: 8px;
+            background: #000;
+            border-radius: 4px 8px 4px 2px;
+            z-index: 6;
+        }
+
+        .walking-person .shoe-left {
+            top: 99px;
+            left: calc(50% - 18px);
+            animation: leftShoeWalk 1s ease-in-out infinite;
+        }
+
+        .walking-person .shoe-right {
+            top: 99px;
+            left: calc(50% + 2px);
+            animation: rightShoeWalk 1s ease-in-out infinite;
+        }
+
+        /* Speech Bubble */
+        .speech-bubble {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 20px;
+            padding: 12px 16px;
+            min-width: 140px;
+            max-width: 200px;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 15;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            animation: bubbleBounce 2s ease-in-out infinite;
+        }
+
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 15px solid #000;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 12px solid #fff;
+        }
+
+        .bubble-amount-usd {
+            color: #2e7d32;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .bubble-amount-sol {
+            color: #9c27b0;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .bubble-wallet {
+            color: #666;
+            font-size: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            line-height: 1.2;
+        }
+
+        @keyframes bubbleBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-3px); }
+        }
+
+        @keyframes walkAcross {
+            0% { 
+                left: -45px; 
+                opacity: 1;
+            }
+            100% { 
+                left: 100vw; 
+                opacity: 1;
+            }
+        }
+
+        @keyframes leftArmWalk {
+            0% { transform: rotate(15deg); }
+            50% { transform: rotate(-25deg); }
+            100% { transform: rotate(15deg); }
+        }
+
+        @keyframes rightArmWalk {
+            0% { transform: rotate(-15deg); }
+            50% { transform: rotate(25deg); }
+            100% { transform: rotate(-15deg); }
+        }
+
+        @keyframes leftLegWalk {
+            0% { transform: rotate(10deg); }
+            50% { transform: rotate(-20deg); }
+            100% { transform: rotate(10deg); }
+        }
+
+        @keyframes rightLegWalk {
+            0% { transform: rotate(-10deg); }
+            50% { transform: rotate(20deg); }
+            100% { transform: rotate(-10deg); }
+        }
+
+        @keyframes leftShoeWalk {
+            0% { transform: translateX(2px) translateY(0); }
+            50% { transform: translateX(-4px) translateY(-3px); }
+            100% { transform: translateX(2px) translateY(0); }
+        }
+
+        @keyframes rightShoeWalk {
+            0% { transform: translateX(-2px) translateY(0); }
+            50% { transform: translateX(4px) translateY(-3px); }
+            100% { transform: translateX(-2px) translateY(0); }
+        }
+
+        .cloud {
+            position: absolute;
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 50px;
+            opacity: 0.9;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 50px;
+        }
+
+        .cloud1 {
+            top: 50px;
+            left: -120px;
+            width: 80px;
+            height: 50px;
+            animation: drift1 20s linear infinite;
+        }
+
+        .cloud1::before {
+            top: -20px;
+            left: 20px;
+            width: 60px;
+            height: 40px;
+        }
+
+        .cloud1::after {
+            top: -12px;
+            right: 15px;
+            width: 45px;
+            height: 30px;
+        }
+
+        .cloud2 {
+            top: 100px;
+            left: -150px;
+            width: 100px;
+            height: 60px;
+            animation: drift2 25s linear infinite;
+            animation-delay: -10s;
+        }
+
+        .cloud2::before {
+            top: -25px;
+            left: 25px;
+            width: 70px;
+            height: 50px;
+        }
+
+        .cloud2::after {
+            top: -15px;
+            right: 20px;
+            width: 50px;
+            height: 35px;
+        }
+
+        .cloud3 {
+            top: 30px;
+            left: -100px;
+            width: 70px;
+            height: 40px;
+            animation: drift3 18s linear infinite;
+            animation-delay: -5s;
+        }
+
+        .cloud3::before {
+            top: -15px;
+            left: 15px;
+            width: 50px;
+            height: 30px;
+        }
+
+        .cloud3::after {
+            top: -10px;
+            right: 12px;
+            width: 35px;
+            height: 25px;
+        }
+
+        .cloud4 {
+            top: 100px;
+            left: -110px;
+            width: 70px;
+            height: 40px;
+            animation: drift4 28s linear infinite;
+            animation-delay: -15s;
+        }
+
+        .cloud4::before {
+            top: -18px;
+            left: 18px;
+            width: 50px;
+            height: 35px;
+        }
+
+        .cloud4::after {
+            top: -10px;
+            right: 12px;
+            width: 38px;
+            height: 28px;
+        }
+
+        .cloud5 {
+            top: 140px;
+            left: -80px;
+            width: 45px;
+            height: 28px;
+            animation: drift5 22s linear infinite;
+            animation-delay: -8s;
+        }
+
+        .cloud5::before {
+            top: -10px;
+            left: 10px;
+            width: 32px;
+            height: 22px;
+        }
+
+        .cloud5::after {
+            top: -6px;
+            right: 8px;
+            width: 25px;
+            height: 18px;
+        }
+
+        .cloud6 {
+            top: 50px;
+            left: -130px;
+            width: 75px;
+            height: 42px;
+            animation: drift6 26s linear infinite;
+            animation-delay: -18s;
+        }
+
+        .cloud6::before {
+            top: -16px;
+            left: 20px;
+            width: 48px;
+            height: 32px;
+        }
+
+        .cloud6::after {
+            top: -8px;
+            right: 15px;
+            width: 36px;
+            height: 26px;
+        }
+
+        @keyframes drift1 {
+            0% { left: -180px; }
+            100% { left: 200vw; }
+        }
+
+        @keyframes drift2 {
+            0% { left: -225px; }
+            100% { left: 200vw; }
+        }
+
+        @keyframes drift3 {
+            0% { left: -150px; }
+            100% { left: 200vw; }
+        }
+
+        @keyframes drift4 {
+            0% { left: -165px; }
+            100% { left: 200vw; }
+        }
+
+        @keyframes drift5 {
+            0% { left: -120px; }
+            100% { left: 200vw; }
+        }
+
+        @keyframes drift6 {
+            0% { left: -195px; }
+            100% { left: 200vw; }
+        }
+
+        .purchase-notification {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #fff;
+            border: 4px solid #000;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 7px 7px 0 #000;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideInOut 8s ease-in-out;
+            max-width: 400px;
+        }
+
+        .stats-container {
+            position: fixed;
+            top: 200px;
+            right: 30px;
+            background: #fff;
+            border: 4px solid #000;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 7px 7px 0 #000;
+            z-index: 1000;
+            max-width: 300px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .stats-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #333;
+        }
+
+        .stat-value {
+            color: #2e7d32;
+            font-family: monospace;
+        }
+
+        .twitter-container {
+            position: fixed;
+            top: 340px;
+            right: 30px;
+            background: #1da1f2;
+            border: 4px solid #000;
+            border-radius: 20px;
+            padding: 15px 20px;
+            box-shadow: 7px 7px 0 #000;
+            z-index: 1000;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            max-width: 300px;
+        }
+
+        .twitter-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .twitter-link:hover {
+            color: #e1f5fe;
+        }
+
+        .twitter-icon {
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #1da1f2;
+        }
+
+        @keyframes slideInOut {
+            0% { opacity: 0; transform: translateX(100%); }
+            10% { opacity: 1; transform: translateX(0); }
+            90% { opacity: 1; transform: translateX(0); }
+            100% { opacity: 0; transform: translateX(100%); }
+        }
+
+        .stick-figure {
+            width: 60px;
+            height: 85px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 15px;
+            position: relative;
+        }
+
+        /* Hair */
+        .stick-figure .hair {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            width: 28px;
+            height: 16px;
+            background: #8b4513;
+            border: 2px solid #000;
+            border-radius: 14px 14px 6px 6px;
+            transform: translateX(-50%);
+            z-index: 8;
+        }
+
+        /* Head */
+        .stick-figure::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 26px;
+            height: 30px;
+            background: #ffdbac;
+            border: 2px solid #000;
+            border-radius: 14px 14px 10px 10px;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        /* Eyes */
+        .stick-figure .eyes {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            width: 14px;
+            height: 4px;
+            transform: translateX(-50%);
+            z-index: 12;
+        }
+
+        .stick-figure .eyes::before,
+        .stick-figure .eyes::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .stick-figure .eyes::before {
+            left: 2px;
+        }
+
+        .stick-figure .eyes::after {
+            right: 2px;
+        }
+
+        /* Smile */
+        .stick-figure .smile {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            width: 8px;
+            height: 4px;
+            border: 0 0 2px 0;
+            border-color: #000;
+            border-style: solid;
+            border-radius: 0 0 8px 8px;
+            transform: translateX(-50%);
+            z-index: 12;
+        }
+
+        /* Body */
+        .stick-figure::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 22px;
+            height: 32px;
+            background: #4a90e2;
+            border: 2px solid #000;
+            border-radius: 11px 11px 6px 6px;
+            transform: translateX(-50%);
+            z-index: 5;
+            box-shadow: 
+                -14px 6px 0 -6px #ffdbac,
+                14px 6px 0 -6px #ffdbac,
+                -8px 34px 0 -4px #2c3e50,
+                8px 34px 0 -4px #2c3e50,
+                -10px 52px 0 -2px #000,
+                10px 52px 0 -2px #000;
+        }
+
+        .purchase-info {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .amount {
+            color: #2e7d32;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .wallet {
+            color: #666;
+            font-size: 12px;
+            font-family: monospace;
+        }
+
+        @media (max-width: 768px) {
+            .city-container {
+                transform: scale(1.0) translateY(-2%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="city-container">        
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+        <div class="cloud cloud4"></div>
+        <div class="cloud cloud5"></div>
+        <div class="cloud cloud6"></div>
+        
+        <div class="building building1">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building2">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building3">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building4">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building5">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building6">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building7">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="building building8">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        
+        <div class="pavement"></div>
+        
+        <!-- Walking people will spawn here -->
+        
+        <!-- Purchase notifications will appear here -->
+        <div id="notifications-container"></div>
+        
+        <!-- Stats Display -->
+        <div class="stats-container">
+            <div class="stats-title">📊 Live Stats</div>
+            <div class="stat-item">
+                <span class="stat-label">Volume:</span>
+                <span class="stat-value" id="volume-value">$0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Buys:</span>
+                <span class="stat-value" id="buys-value">0</span>
+            </div>
+        </div>
+        
+        <!-- Twitter Link -->
+        <div class="twitter-container">
+            <a href="https://twitter.com/yourusername" class="twitter-link" target="_blank">
+                <div class="twitter-icon">🐦</div>
+                Join The X Community
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Global counters
+        let totalVolume = 0;
+        let totalBuys = 0;
+
+        // Function to format large numbers
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return '$' + (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return '$' + (num / 1000).toFixed(1) + 'K';
+            }
+            return '$' + num.toLocaleString();
+        }
+
+        // Function to update stats display
+        function updateStats() {
+            document.getElementById('volume-value').textContent = formatNumber(totalVolume);
+            document.getElementById('buys-value').textContent = totalBuys.toLocaleString();
+        }
+
+        // Demo function to simulate memecoin purchases
+        function simulatePurchase() {
+            const usdAmounts = ['$12.50', '$50.00', '$125.75', '$8.25', '$99.99', '$250.00', '$420.69', '$15.80', '$75.30', '$185.45', '$5.99', '$33.33', '$88.88', '$177.77', '$299.50', '$69.69', '$444.44', '$25.25', '$150.00', '$199.99'];
+            const wallets = [
+                '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgHRP',
+                'BQWWFhzBdw2vKKBUX17NHeFbCoFQHfRARpdztPE2tDJ',
+                'FNnt3T7hqVDXEVP8UhXZwpgAVWQT2QXjE1h8eK9nL2m',
+                'G4KXt2CWdfg97TXJSDpbD5jBkhe82A83TZRuJosgHRP',
+                '8YWWFhzBdw2vKKBUX17NHeFbCoFQHfRARpdztPE2tDJ',
+                'C5TgY3HnVqKx8dR2FmPQW1zN7vB6eA9sL4kJ3mP8xT',
+                'D7KmR5WnXcY2bT8vN1pF6zS9eL3qJ4kH7wM2aR5uE',
+                'A9BcDeFgHiJkLmNoPqRsTuVwXyZ1234567890AbCdE',
+                'K2LmN4OpQ6RsT8UvW0XyZ2345678901234567890',
+                'F3GhI5JkL7MnO9PqR1StU3VwX5YzA7890123456789',
+                'H4IjK6LmN8OpQ0RsT2UvW4XyZ6789012345678901',
+                'L5MnO7PqR9StU1VwX3YzA5678901234567890123',
+                'P6QrS8TuV0WxY2ZaB4567890123456789012345',
+                'T7UvW9XyZ1AbC3DeF5678901234567890123456',
+                'X8YzA0BcD2EfG4HiJ6789012345678901234567',
+                'B9CdE1FgH3IjK5LmN7890123456789012345678',
+                'E0FgH2IjK4LmN6OpQ8901234567890123456789',
+                'I1JkL3MnO5PqR7StU9012345678901234567890',
+                'M2NpQ4RsT6UvW8XyZ0123456789012345678901',
+                'Q3RsT5UvW7XyZ9AbC1234567890123456789012',
+                'U4VwX6YzA8BcD0EfG2345678901234567890123',
+                'Y5ZaB7CdE9FgH1IjK3456789012345678901234',
+                'C6DeF8GhI0JkL2MnO4567890123456789012345',
+                'G7HiJ9KlM1NpQ3RsT5678901234567890123456',
+                'K8LmN0OpQ2RsT4UvW6789012345678901234567'
+            ];
+            
+            const randomUsdAmount = usdAmounts[Math.floor(Math.random() * usdAmounts.length)];
+            const randomWallet = wallets[Math.floor(Math.random() * wallets.length)];
+            
+            // Convert USD to SOL (using a simulated rate around $240 per SOL)
+            const usdValue = parseFloat(randomUsdAmount.replace('$', ''));
+            const solRate = 240 + (Math.random() * 20 - 10); // $230-$250 range
+            const solAmount = (usdValue / solRate).toFixed(3);
+            
+            // Update counters
+            totalVolume += 250; // Add $250 to volume for each purchase
+            totalBuys += 1;     // Increment buy counter
+            
+            // Update the display
+            updateStats();
+            
+            showPurchaseNotification(randomUsdAmount, randomWallet);
+            spawnWalkingPersonWithBubble(randomUsdAmount, solAmount, randomWallet);
+        }
+
+        function showPurchaseNotification(amount, wallet) {
+            const container = document.getElementById('notifications-container');
+            
+            const notification = document.createElement('div');
+            notification.className = 'purchase-notification';
+            
+            notification.innerHTML = `
+                <div class="purchase-info">
+                    <div class="amount">${amount}</div>
+                    <div class="wallet">${wallet}</div>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Remove notification after animation completes
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 8000);
+        }
+
+        function spawnWalkingPersonWithBubble(usdAmount, solAmount, wallet) {
+            const person = document.createElement('div');
+            person.className = 'walking-person walking';
+            
+            // Add facial features
+            const hair = document.createElement('div');
+            hair.className = 'hair';
+            person.appendChild(hair);
+            
+            const eyes = document.createElement('div');
+            eyes.className = 'eyes';
+            person.appendChild(eyes);
+            
+            const mouth = document.createElement('div');
+            mouth.className = 'mouth';
+            person.appendChild(mouth);
+            
+            // Add limbs
+            const armLeft = document.createElement('div');
+            armLeft.className = 'arm-left';
+            person.appendChild(armLeft);
+            
+            const armRight = document.createElement('div');
+            armRight.className = 'arm-right';
+            person.appendChild(armRight);
+            
+            const legLeft = document.createElement('div');
+            legLeft.className = 'leg-left';
+            person.appendChild(legLeft);
+            
+            const legRight = document.createElement('div');
+            legRight.className = 'leg-right';
+            person.appendChild(legRight);
+            
+            const shoeLeft = document.createElement('div');
+            shoeLeft.className = 'shoe-left';
+            person.appendChild(shoeLeft);
+            
+            const shoeRight = document.createElement('div');
+            shoeRight.className = 'shoe-right';
+            person.appendChild(shoeRight);
+            
+            // Add speech bubble
+            const bubble = document.createElement('div');
+            bubble.className = 'speech-bubble';
+            
+            // Truncate wallet address for display
+            const shortWallet = wallet.substring(0, 8) + '...' + wallet.substring(wallet.length - 6);
+            
+            bubble.innerHTML = `
+                <div class="bubble-amount-usd">${usdAmount}</div>
+                <div class="bubble-amount-sol">${solAmount} SOL</div>
+                <div class="bubble-wallet">${shortWallet}</div>
+            `;
+            
+            person.appendChild(bubble);
+            
+            document.querySelector('.city-container').appendChild(person);
+            
+            // Remove person after animation completes
+            setTimeout(() => {
+                if (person.parentNode) {
+                    person.parentNode.removeChild(person);
+                }
+            }, 12000);
+        }
+
+        // Demo: Simulate purchases every 1-3 seconds for faster action
+        function startDemo() {
+            const randomDelay = Math.random() * 2000 + 1000; // 1-3 seconds
+            setTimeout(() => {
+                simulatePurchase();
+                startDemo(); // Continue the demo
+            }, randomDelay);
+        }
+
+        // Initialize stats display
+        updateStats();
+        
+        // Start the demo
+        startDemo();
+        
+        // You can also manually trigger purchases for testing
+        // simulatePurchase();
+    </script>
+</body>
+</html>
