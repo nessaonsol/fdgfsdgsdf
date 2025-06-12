@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The City Experiment</title>
-    <link rel="icon" type="image/x-icon" href="pfp.png">
+    <title>The Ocean Experiment</title>
+    <link rel="icon" type="image/x-icon" href="fish.png">
     <style>
         * {
             margin: 0;
@@ -13,340 +13,361 @@
         }
 
         body {
-            background: #fff;
-            color: #000;
+            background: linear-gradient(to bottom, #87CEEB 0%, #00BFFF 30%, #1E90FF 60%, #000080 100%);
+            color: #fff;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             overflow: hidden;
             height: 100vh;
         }
 
-        .city-container {
+        .ocean-container {
             position: relative;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, #f8f8f8 0%, #fff 100%);
-            transform: scale(1.0);
-            transform-origin: center bottom;
+            background: linear-gradient(to bottom, #87CEEB 0%, #00BFFF 30%, #1E90FF 60%, #000080 100%);
         }
 
-        .building {
-            position: absolute;
-            bottom: 120px;
-            background: #fff;
-            border: 4px solid #000;
-            border-radius: 12px;
-        }
-
-        .building1 {
-            left: 20px;
-            width: 140px;
-            height: 250px;
-        }
-
-        .building2 {
-            left: 180px;
-            width: 100px;
-            height: 320px;
-        }
-
-        .building3 {
-            left: 300px;
-            width: 160px;
-            height: 220px;
-        }
-
-        .building4 {
-            left: 480px;
-            width: 120px;
-            height: 380px;
-        }
-
-        .building5 {
-            left: 620px;
-            width: 130px;
-            height: 270px;
-        }
-
-        .building6 {
-            left: 770px;
-            width: 110px;
-            height: 200px;
-        }
-
-        .building7 {
-            left: 900px;
-            width: 150px;
-            height: 300px;
-        }
-
-        .building8 {
-            left: 1070px;
-            width: 100px;
-            height: 250px;
-        }
-
-        .window {
-            position: absolute;
-            background: #e0e0e0;
-            border: 2px solid #000;
-            border-radius: 4px;
-        }
-
-        /* Building 1 windows */
-        .building1 .window {
-            width: 30px;
-            height: 37px;
-        }
-        .building1 .window:nth-child(1) { top: 45px; left: 30px; }
-        .building1 .window:nth-child(2) { top: 45px; right: 30px; }
-        .building1 .window:nth-child(3) { top: 120px; left: 30px; }
-        .building1 .window:nth-child(4) { top: 120px; right: 30px; }
-        .building1 .window:nth-child(5) { top: 195px; left: 30px; }
-        .building1 .window:nth-child(6) { top: 195px; right: 30px; }
-
-        /* Building 2 windows */
-        .building2 .window {
-            width: 22px;
-            height: 30px;
-        }
-        .building2 .window:nth-child(1) { top: 60px; left: 22px; }
-        .building2 .window:nth-child(2) { top: 60px; right: 22px; }
-        .building2 .window:nth-child(3) { top: 150px; left: 22px; }
-        .building2 .window:nth-child(4) { top: 150px; right: 22px; }
-        .building2 .window:nth-child(5) { top: 240px; left: 22px; }
-        .building2 .window:nth-child(6) { top: 240px; right: 22px; }
-        .building2 .window:nth-child(7) { top: 330px; left: 22px; }
-        .building2 .window:nth-child(8) { top: 330px; right: 22px; }
-
-        /* Building 3 windows */
-        .building3 .window {
-            width: 27px;
-            height: 33px;
-        }
-        .building3 .window:nth-child(1) { top: 37px; left: 37px; }
-        .building3 .window:nth-child(2) { top: 37px; left: 90px; }
-        .building3 .window:nth-child(3) { top: 37px; right: 37px; }
-        .building3 .window:nth-child(4) { top: 120px; left: 37px; }
-        .building3 .window:nth-child(5) { top: 120px; left: 90px; }
-        .building3 .window:nth-child(6) { top: 120px; right: 37px; }
-        .building3 .window:nth-child(7) { top: 195px; left: 37px; }
-        .building3 .window:nth-child(8) { top: 195px; right: 37px; }
-
-        /* Similar patterns for other buildings */
-        .building4 .window, .building5 .window, .building6 .window, .building7 .window, .building8 .window {
-            width: 24px;
-            height: 30px;
-        }
-
-        .building4 .window:nth-child(1) { top: 60px; left: 30px; }
-        .building4 .window:nth-child(2) { top: 60px; right: 30px; }
-        .building4 .window:nth-child(3) { top: 150px; left: 30px; }
-        .building4 .window:nth-child(4) { top: 150px; right: 30px; }
-        .building4 .window:nth-child(5) { top: 240px; left: 30px; }
-        .building4 .window:nth-child(6) { top: 240px; right: 30px; }
-        .building4 .window:nth-child(7) { top: 330px; left: 30px; }
-        .building4 .window:nth-child(8) { top: 330px; right: 30px; }
-        .building4 .window:nth-child(9) { top: 420px; left: 30px; }
-        .building4 .window:nth-child(10) { top: 420px; right: 30px; }
-
-        .pavement {
+        .coral {
             position: absolute;
             bottom: 0;
-            width: 100%;
+        }
+
+        .coral1 {
+            left: 50px;
+            width: 80px;
+            height: 150px;
+            background: linear-gradient(45deg, #FF6B35, #FF8E53);
+            border: 3px solid #000;
+            border-radius: 40px 40px 0 0;
+            clip-path: polygon(20% 100%, 0% 80%, 15% 60%, 5% 40%, 25% 20%, 10% 0%, 40% 10%, 30% 30%, 50% 15%, 60% 35%, 80% 20%, 70% 0%, 90% 15%, 85% 40%, 100% 35%, 95% 55%, 100% 75%, 80% 90%, 100% 100%);
+        }
+
+        .coral2 {
+            left: 200px;
+            width: 100px;
+            height: 200px;
+            background: linear-gradient(45deg, #E91E63, #F06292);
+            border: 3px solid #000;
+            border-radius: 50px 50px 0 0;
+            clip-path: polygon(15% 100%, 0% 85%, 20% 70%, 10% 50%, 30% 30%, 15% 10%, 25% 0%, 45% 15%, 35% 35%, 55% 20%, 65% 40%, 85% 25%, 75% 5%, 95% 20%, 90% 45%, 100% 40%, 95% 65%, 100% 85%, 85% 95%, 100% 100%);
+        }
+
+        .coral3 {
+            left: 350px;
+            width: 70px;
             height: 120px;
-            background: #888;
-            border-top: 6px solid #000;
-            background-image: 
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 48px,
-                    #777 48px,
-                    #777 52px
-                ),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 28px,
-                    #777 28px,
-                    #777 32px
-                );
+            background: linear-gradient(45deg, #9C27B0, #BA68C8);
+            border: 3px solid #000;
+            border-radius: 35px 35px 0 0;
+            clip-path: polygon(25% 100%, 5% 80%, 20% 60%, 0% 40%, 30% 20%, 15% 0%, 40% 10%, 60% 0%, 75% 20%, 100% 40%, 80% 60%, 95% 80%, 75% 100%);
         }
 
-        .walking-person {
-            position: absolute;
-            bottom: 35px;
-            width: 60px;
-            height: 100px;
-            opacity: 0;
-            animation: walkAcross 12s linear;
+        .coral4 {
+            right: 300px;
+            width: 90px;
+            height: 180px;
+            background: linear-gradient(45deg, #FF9800, #FFB74D);
+            border: 3px solid #000;
+            border-radius: 45px 45px 0 0;
+            clip-path: polygon(10% 100%, 0% 75%, 25% 55%, 15% 35%, 35% 15%, 20% 0%, 50% 10%, 45% 30%, 65% 20%, 80% 0%, 100% 15%, 85% 35%, 100% 55%, 75% 75%, 100% 100%);
         }
 
-        /* Head */
-        .walking-person::before {
-            content: '';
+        .coral5 {
+            right: 150px;
+            width: 110px;
+            height: 160px;
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            border: 3px solid #000;
+            border-radius: 55px 55px 0 0;
+            clip-path: polygon(20% 100%, 0% 80%, 30% 60%, 10% 40%, 40% 20%, 25% 0%, 55% 10%, 70% 0%, 85% 20%, 100% 40%, 70% 60%, 100% 80%, 80% 100%);
+        }
+
+        .coral6 {
+            right: 50px;
+            width: 85px;
+            height: 140px;
+            background: linear-gradient(45deg, #FF5722, #FF8A65);
+            border: 3px solid #000;
+            border-radius: 42px 42px 0 0;
+            clip-path: polygon(15% 100%, 0% 85%, 25% 65%, 5% 45%, 35% 25%, 20% 5%, 45% 0%, 65% 15%, 85% 0%, 100% 25%, 75% 45%, 95% 65%, 80% 85%, 100% 100%);
+        }
+
+        .seaweed {
             position: absolute;
-            top: 0;
-            left: 50%;
-            width: 28px;
-            height: 32px;
-            background: #ffdbac;
+            bottom: 0;
+            background: linear-gradient(to top, #2E7D32, #4CAF50);
             border: 2px solid #000;
-            border-radius: 16px 16px 12px 12px;
-            transform: translateX(-50%);
+            border-radius: 20px 20px 0 0;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        .seaweed1 {
+            left: 120px;
+            width: 15px;
+            height: 100px;
+            animation-delay: 0s;
+        }
+
+        .seaweed2 {
+            left: 280px;
+            width: 12px;
+            height: 80px;
+            animation-delay: 1s;
+        }
+
+        .seaweed3 {
+            right: 400px;
+            width: 18px;
+            height: 120px;
+            animation-delay: 0.5s;
+        }
+
+        .seaweed4 {
+            right: 200px;
+            width: 14px;
+            height: 90px;
+            animation-delay: 1.5s;
+        }
+
+        .seaweed5 {
+            right: 80px;
+            width: 16px;
+            height: 110px;
+            animation-delay: 2s;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: floatUp 8s linear infinite;
+        }
+
+        .bubble1 {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .bubble2 {
+            left: 30%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+        }
+
+        .bubble3 {
+            left: 60%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 4s;
+        }
+
+        .bubble4 {
+            left: 80%;
+            width: 18px;
+            height: 18px;
+            animation-delay: 6s;
+        }
+
+        .bubble5 {
+            left: 45%;
+            width: 12px;
+            height: 12px;
+            animation-delay: 1s;
+        }
+
+        .bubble6 {
+            left: 75%;
+            width: 22px;
+            height: 22px;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatUp {
+            0% { 
+                bottom: -30px; 
+                opacity: 0.7;
+                transform: translateX(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(20px);
+            }
+            100% { 
+                bottom: 100vh; 
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+        }
+
+        .swimming-fish {
+            position: absolute;
+            bottom: 200px;
+            width: 100px;
+            height: 60px;
+            opacity: 0;
+            animation: swimAcross 15s linear;
             z-index: 10;
         }
 
-        /* Body */
-        .walking-person::after {
-            content: '';
-            position: absolute;
-            top: 32px;
-            left: 50%;
-            width: 24px;
-            height: 35px;
-            background: #4a90e2;
-            border: 2px solid #000;
-            border-radius: 12px 12px 8px 8px;
-            transform: translateX(-50%);
+        .fish-body {
+            position: relative;
+            width: 60px;
+            height: 40px;
+            background: linear-gradient(45deg, #FF6B35, #FFD23F);
+            border: 3px solid #000;
+            border-radius: 50%;
             z-index: 5;
+            transform: scaleX(1.3);
         }
 
-        /* Hair */
-        .walking-person .hair {
+        .fish-tail {
             position: absolute;
-            top: -2px;
-            left: 50%;
-            width: 32px;
-            height: 18px;
-            background: #8b4513;
-            border: 2px solid #000;
-            border-radius: 16px 16px 8px 8px;
-            transform: translateX(-50%);
-            z-index: 8;
-        }
-
-        /* Eyes */
-        .walking-person .eyes {
-            position: absolute;
+            right: -25px;
             top: 8px;
-            left: 50%;
-            width: 16px;
-            height: 4px;
-            transform: translateX(-50%);
-            z-index: 12;
+            width: 0;
+            height: 0;
+            border-left: 30px solid #FF6B35;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 0;
+            z-index: 3;
+            transform: scaleX(0.8);
         }
 
-        .walking-person .eyes::before,
-        .walking-person .eyes::after {
+        .fish-tail::after {
             content: '';
             position: absolute;
-            width: 3px;
-            height: 3px;
+            right: 3px;
+            top: -12px;
+            width: 0;
+            height: 0;
+            border-left: 25px solid #000;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            z-index: 2;
+        }
+
+        .fish-tail::before {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid #FF6B35;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            z-index: 4;
+        }
+
+        .fish-eye {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 50%;
+            z-index: 6;
+        }
+
+        .fish-eye::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 5px;
+            height: 5px;
             background: #000;
             border-radius: 50%;
         }
 
-        .walking-person .eyes::before {
-            left: 3px;
+        .fish-fin-top {
+            position: absolute;
+            top: -12px;
+            left: 25px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 18px solid #FF6B35;
+            z-index: 4;
+            transform: rotate(-15deg);
         }
 
-        .walking-person .eyes::after {
-            right: 3px;
+        .fish-fin-bottom {
+            position: absolute;
+            bottom: -12px;
+            left: 30px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 15px solid #FF6B35;
+            z-index: 4;
+            transform: rotate(15deg);
         }
 
-        /* Mouth */
-        .walking-person .mouth {
+        .fish-side-fin {
+            position: absolute;
+            left: 10px;
+            top: 18px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 15px solid #FF6B35;
+            z-index: 4;
+            transform: rotate(-20deg);
+        }
+
+        .fish-mouth {
             position: absolute;
             top: 18px;
-            left: 50%;
+            left: 5px;
             width: 8px;
-            height: 3px;
-            background: #000;
-            border-radius: 0 0 8px 8px;
-            transform: translateX(-50%);
-            z-index: 12;
-        }
-
-        /* Arms */
-        .walking-person .arm-left,
-        .walking-person .arm-right {
-            position: absolute;
-            width: 8px;
-            height: 28px;
-            background: #ffdbac;
-            border: 2px solid #000;
-            border-radius: 4px;
-            transform-origin: top center;
-            z-index: 3;
-        }
-
-        .walking-person .arm-left {
-            top: 36px;
-            left: calc(50% - 18px);
-            animation: leftArmWalk 1s ease-in-out infinite;
-        }
-
-        .walking-person .arm-right {
-            top: 36px;
-            left: calc(50% + 10px);
-            animation: rightArmWalk 1s ease-in-out infinite;
-        }
-
-        /* Legs */
-        .walking-person .leg-left,
-        .walking-person .leg-right {
-            position: absolute;
-            width: 10px;
-            height: 32px;
-            background: #2c3e50;
-            border: 2px solid #000;
-            border-radius: 5px;
-            transform-origin: top center;
-            z-index: 4;
-        }
-
-        .walking-person .leg-left {
-            top: 67px;
-            left: calc(50% - 14px);
-            animation: leftLegWalk 1s ease-in-out infinite;
-        }
-
-        .walking-person .leg-right {
-            top: 67px;
-            left: calc(50% + 4px);
-            animation: rightLegWalk 1s ease-in-out infinite;
-        }
-
-        /* Shoes */
-        .walking-person .shoe-left,
-        .walking-person .shoe-right {
-            position: absolute;
-            width: 16px;
-            height: 8px;
-            background: #000;
-            border-radius: 4px 8px 4px 2px;
+            height: 4px;
+            background: #333;
+            border-radius: 50%;
             z-index: 6;
         }
 
-        .walking-person .shoe-left {
-            top: 99px;
-            left: calc(50% - 18px);
-            animation: leftShoeWalk 1s ease-in-out infinite;
+        .fish-scales {
+            position: absolute;
+            top: 15px;
+            left: 35px;
+            width: 12px;
+            height: 8px;
+            border: 2px solid rgba(0,0,0,0.3);
+            border-radius: 50%;
+            z-index: 6;
         }
 
-        .walking-person .shoe-right {
-            top: 99px;
-            left: calc(50% + 2px);
-            animation: rightShoeWalk 1s ease-in-out infinite;
+        .fish-scales::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -8px;
+            width: 10px;
+            height: 6px;
+            border: 2px solid rgba(0,0,0,0.3);
+            border-radius: 50%;
         }
 
-        /* Speech Bubble */
         .speech-bubble {
             position: absolute;
-            bottom: 120px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 60px;
+            left: -80px;
             background: #fff;
             border: 3px solid #000;
             border-radius: 20px;
@@ -359,6 +380,7 @@
             z-index: 15;
             box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
             animation: bubbleBounce 2s ease-in-out infinite;
+            color: #000;
         }
 
         .speech-bubble::before {
@@ -408,239 +430,30 @@
         }
 
         @keyframes bubbleBounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-3px); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
         }
 
-        @keyframes walkAcross {
+        @keyframes swimAcross {
             0% { 
-                left: -45px; 
+                left: -100px; 
                 opacity: 1;
+                bottom: 200px;
+            }
+            25% {
+                bottom: 300px;
+            }
+            50% {
+                bottom: 250px;
+            }
+            75% {
+                bottom: 350px;
             }
             100% { 
                 left: 100vw; 
                 opacity: 1;
+                bottom: 280px;
             }
-        }
-
-        @keyframes leftArmWalk {
-            0% { transform: rotate(15deg); }
-            50% { transform: rotate(-25deg); }
-            100% { transform: rotate(15deg); }
-        }
-
-        @keyframes rightArmWalk {
-            0% { transform: rotate(-15deg); }
-            50% { transform: rotate(25deg); }
-            100% { transform: rotate(-15deg); }
-        }
-
-        @keyframes leftLegWalk {
-            0% { transform: rotate(10deg); }
-            50% { transform: rotate(-20deg); }
-            100% { transform: rotate(10deg); }
-        }
-
-        @keyframes rightLegWalk {
-            0% { transform: rotate(-10deg); }
-            50% { transform: rotate(20deg); }
-            100% { transform: rotate(-10deg); }
-        }
-
-        @keyframes leftShoeWalk {
-            0% { transform: translateX(2px) translateY(0); }
-            50% { transform: translateX(-4px) translateY(-3px); }
-            100% { transform: translateX(2px) translateY(0); }
-        }
-
-        @keyframes rightShoeWalk {
-            0% { transform: translateX(-2px) translateY(0); }
-            50% { transform: translateX(4px) translateY(-3px); }
-            100% { transform: translateX(-2px) translateY(0); }
-        }
-
-        .cloud {
-            position: absolute;
-            background: #fff;
-            border: 3px solid #000;
-            border-radius: 50px;
-            opacity: 0.9;
-        }
-
-        .cloud::before,
-        .cloud::after {
-            content: '';
-            position: absolute;
-            background: #fff;
-            border: 3px solid #000;
-            border-radius: 50px;
-        }
-
-        .cloud1 {
-            top: 50px;
-            left: -120px;
-            width: 80px;
-            height: 50px;
-            animation: drift1 20s linear infinite;
-        }
-
-        .cloud1::before {
-            top: -20px;
-            left: 20px;
-            width: 60px;
-            height: 40px;
-        }
-
-        .cloud1::after {
-            top: -12px;
-            right: 15px;
-            width: 45px;
-            height: 30px;
-        }
-
-        .cloud2 {
-            top: 100px;
-            left: -150px;
-            width: 100px;
-            height: 60px;
-            animation: drift2 25s linear infinite;
-            animation-delay: -10s;
-        }
-
-        .cloud2::before {
-            top: -25px;
-            left: 25px;
-            width: 70px;
-            height: 50px;
-        }
-
-        .cloud2::after {
-            top: -15px;
-            right: 20px;
-            width: 50px;
-            height: 35px;
-        }
-
-        .cloud3 {
-            top: 30px;
-            left: -100px;
-            width: 70px;
-            height: 40px;
-            animation: drift3 18s linear infinite;
-            animation-delay: -5s;
-        }
-
-        .cloud3::before {
-            top: -15px;
-            left: 15px;
-            width: 50px;
-            height: 30px;
-        }
-
-        .cloud3::after {
-            top: -10px;
-            right: 12px;
-            width: 35px;
-            height: 25px;
-        }
-
-        .cloud4 {
-            top: 100px;
-            left: -110px;
-            width: 70px;
-            height: 40px;
-            animation: drift4 28s linear infinite;
-            animation-delay: -15s;
-        }
-
-        .cloud4::before {
-            top: -18px;
-            left: 18px;
-            width: 50px;
-            height: 35px;
-        }
-
-        .cloud4::after {
-            top: -10px;
-            right: 12px;
-            width: 38px;
-            height: 28px;
-        }
-
-        .cloud5 {
-            top: 140px;
-            left: -80px;
-            width: 45px;
-            height: 28px;
-            animation: drift5 22s linear infinite;
-            animation-delay: -8s;
-        }
-
-        .cloud5::before {
-            top: -10px;
-            left: 10px;
-            width: 32px;
-            height: 22px;
-        }
-
-        .cloud5::after {
-            top: -6px;
-            right: 8px;
-            width: 25px;
-            height: 18px;
-        }
-
-        .cloud6 {
-            top: 50px;
-            left: -130px;
-            width: 75px;
-            height: 42px;
-            animation: drift6 26s linear infinite;
-            animation-delay: -18s;
-        }
-
-        .cloud6::before {
-            top: -16px;
-            left: 20px;
-            width: 48px;
-            height: 32px;
-        }
-
-        .cloud6::after {
-            top: -8px;
-            right: 15px;
-            width: 36px;
-            height: 26px;
-        }
-
-        @keyframes drift1 {
-            0% { left: -180px; }
-            100% { left: 200vw; }
-        }
-
-        @keyframes drift2 {
-            0% { left: -225px; }
-            100% { left: 200vw; }
-        }
-
-        @keyframes drift3 {
-            0% { left: -150px; }
-            100% { left: 200vw; }
-        }
-
-        @keyframes drift4 {
-            0% { left: -165px; }
-            100% { left: 200vw; }
-        }
-
-        @keyframes drift5 {
-            0% { left: -120px; }
-            100% { left: 200vw; }
-        }
-
-        @keyframes drift6 {
-            0% { left: -195px; }
-            100% { left: 200vw; }
         }
 
         .purchase-notification {
@@ -657,6 +470,7 @@
             transform: translateX(100%);
             animation: slideInOut 8s ease-in-out;
             max-width: 400px;
+            color: #000;
         }
 
         .stats-container {
@@ -671,6 +485,7 @@
             z-index: 1000;
             max-width: 300px;
             font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #000;
         }
 
         .stats-title {
@@ -746,110 +561,6 @@
             100% { opacity: 0; transform: translateX(100%); }
         }
 
-        .stick-figure {
-            width: 60px;
-            height: 85px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 15px;
-            position: relative;
-        }
-
-        /* Hair */
-        .stick-figure .hair {
-            position: absolute;
-            top: -2px;
-            left: 50%;
-            width: 28px;
-            height: 16px;
-            background: #8b4513;
-            border: 2px solid #000;
-            border-radius: 14px 14px 6px 6px;
-            transform: translateX(-50%);
-            z-index: 8;
-        }
-
-        /* Head */
-        .stick-figure::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 26px;
-            height: 30px;
-            background: #ffdbac;
-            border: 2px solid #000;
-            border-radius: 14px 14px 10px 10px;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-
-        /* Eyes */
-        .stick-figure .eyes {
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            width: 14px;
-            height: 4px;
-            transform: translateX(-50%);
-            z-index: 12;
-        }
-
-        .stick-figure .eyes::before,
-        .stick-figure .eyes::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #000;
-            border-radius: 50%;
-        }
-
-        .stick-figure .eyes::before {
-            left: 2px;
-        }
-
-        .stick-figure .eyes::after {
-            right: 2px;
-        }
-
-        /* Smile */
-        .stick-figure .smile {
-            position: absolute;
-            top: 16px;
-            left: 50%;
-            width: 8px;
-            height: 4px;
-            border: 0 0 2px 0;
-            border-color: #000;
-            border-style: solid;
-            border-radius: 0 0 8px 8px;
-            transform: translateX(-50%);
-            z-index: 12;
-        }
-
-        /* Body */
-        .stick-figure::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            width: 22px;
-            height: 32px;
-            background: #4a90e2;
-            border: 2px solid #000;
-            border-radius: 11px 11px 6px 6px;
-            transform: translateX(-50%);
-            z-index: 5;
-            box-shadow: 
-                -14px 6px 0 -6px #ffdbac,
-                14px 6px 0 -6px #ffdbac,
-                -8px 34px 0 -4px #2c3e50,
-                8px 34px 0 -4px #2c3e50,
-                -10px 52px 0 -2px #000,
-                10px 52px 0 -2px #000;
-        }
-
         .purchase-info {
             display: block;
             font-size: 18px;
@@ -869,106 +580,92 @@
             font-family: monospace;
         }
 
+        /* Different fish colors */
+        .fish-orange .fish-body { background: linear-gradient(45deg, #FF6B35, #FFD23F); }
+        .fish-orange .fish-tail { border-left-color: #FF6B35; }
+        .fish-orange .fish-tail::before { border-left-color: #FF6B35; }
+        .fish-orange .fish-fin-top, .fish-orange .fish-fin-bottom, .fish-orange .fish-side-fin { 
+            border-bottom-color: #FF6B35; 
+            border-top-color: #FF6B35; 
+            border-right-color: #FF6B35; 
+        }
+
+        .fish-blue .fish-body { background: linear-gradient(45deg, #2196F3, #64B5F6); }
+        .fish-blue .fish-tail { border-left-color: #2196F3; }
+        .fish-blue .fish-tail::before { border-left-color: #2196F3; }
+        .fish-blue .fish-fin-top, .fish-blue .fish-fin-bottom, .fish-blue .fish-side-fin { 
+            border-bottom-color: #2196F3; 
+            border-top-color: #2196F3; 
+            border-right-color: #2196F3; 
+        }
+
+        .fish-pink .fish-body { background: linear-gradient(45deg, #E91E63, #F48FB1); }
+        .fish-pink .fish-tail { border-left-color: #E91E63; }
+        .fish-pink .fish-tail::before { border-left-color: #E91E63; }
+        .fish-pink .fish-fin-top, .fish-pink .fish-fin-bottom, .fish-pink .fish-side-fin { 
+            border-bottom-color: #E91E63; 
+            border-top-color: #E91E63; 
+            border-right-color: #E91E63; 
+        }
+
+        .fish-green .fish-body { background: linear-gradient(45deg, #4CAF50, #81C784); }
+        .fish-green .fish-tail { border-left-color: #4CAF50; }
+        .fish-green .fish-tail::before { border-left-color: #4CAF50; }
+        .fish-green .fish-fin-top, .fish-green .fish-fin-bottom, .fish-green .fish-side-fin { 
+            border-bottom-color: #4CAF50; 
+            border-top-color: #4CAF50; 
+            border-right-color: #4CAF50; 
+        }
+
+        .fish-purple .fish-body { background: linear-gradient(45deg, #9C27B0, #BA68C8); }
+        .fish-purple .fish-tail { border-left-color: #9C27B0; }
+        .fish-purple .fish-tail::before { border-left-color: #9C27B0; }
+        .fish-purple .fish-fin-top, .fish-purple .fish-fin-bottom, .fish-purple .fish-side-fin { 
+            border-bottom-color: #9C27B0; 
+            border-top-color: #9C27B0; 
+            border-right-color: #9C27B0; 
+        }
+
         @media (max-width: 768px) {
-            .city-container {
+            .ocean-container {
                 transform: scale(1.0) translateY(-2%);
             }
         }
     </style>
 </head>
 <body>
-    <div class="city-container">        
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-        <div class="cloud cloud3"></div>
-        <div class="cloud cloud4"></div>
-        <div class="cloud cloud5"></div>
-        <div class="cloud cloud6"></div>
+    <div class="ocean-container">        
+        <!-- Ocean bubbles -->
+        <div class="bubble bubble1"></div>
+        <div class="bubble bubble2"></div>
+        <div class="bubble bubble3"></div>
+        <div class="bubble bubble4"></div>
+        <div class="bubble bubble5"></div>
+        <div class="bubble bubble6"></div>
         
-        <div class="building building1">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
+        <!-- Coral reef -->
+        <div class="coral coral1"></div>
+        <div class="coral coral2"></div>
+        <div class="coral coral3"></div>
+        <div class="coral coral4"></div>
+        <div class="coral coral5"></div>
+        <div class="coral coral6"></div>
         
-        <div class="building building2">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
+        <!-- Seaweed -->
+        <div class="seaweed seaweed1"></div>
+        <div class="seaweed seaweed2"></div>
+        <div class="seaweed seaweed3"></div>
+        <div class="seaweed seaweed4"></div>
+        <div class="seaweed seaweed5"></div>
         
-        <div class="building building3">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
-        
-        <div class="building building4">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
-        
-        <div class="building building5">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
-        
-        <div class="building building6">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
-        
-        <div class="building building7">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
-        
-        <div class="building building8">
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-            <div class="window"></div>
-        </div>
-        
-        <div class="pavement"></div>
-        
-        <!-- Walking people will spawn here -->
+        <!-- Swimming fish will spawn here -->
         
         <!-- Purchase notifications will appear here -->
         <div id="notifications-container"></div>
         
         <!-- Stats Display -->
         <div class="stats-container">
-            <div class="stats-title">📊 Live Stats</div>
+            <div class="stats-title">🐠 Live Stats</div>
             <div class="stat-item">
                 <span class="stat-label">Volume:</span>
                 <span class="stat-value" id="volume-value">$0</span>
@@ -981,8 +678,8 @@
         
         <!-- Twitter Link -->
         <div class="twitter-container">
-            <a href="https://x.com/TheCityExperi" class="twitter-link" target="_blank">
-                <div class="twitter-icon">🐦</div>
+            <a href="https://x.com/TheOceanExperi" class="twitter-link" target="_blank">
+                <div class="twitter-icon">🐠</div>
                 Follow Our X!
             </a>
         </div>
@@ -992,6 +689,9 @@
         // Global counters
         let totalVolume = 0;
         let totalBuys = 0;
+
+        // Fish color classes
+        const fishColors = ['fish-orange', 'fish-blue', 'fish-pink', 'fish-green', 'fish-purple'];
 
         // Function to format large numbers
         function formatNumber(num) {
@@ -1056,7 +756,7 @@
             updateStats();
             
             showPurchaseNotification(randomUsdAmount, randomWallet);
-            spawnWalkingPersonWithBubble(randomUsdAmount, solAmount, randomWallet);
+            spawnSwimmingFishWithBubble(randomUsdAmount, solAmount, randomWallet);
         }
 
         function showPurchaseNotification(amount, wallet) {
@@ -1082,47 +782,50 @@
             }, 8000);
         }
 
-        function spawnWalkingPersonWithBubble(usdAmount, solAmount, wallet) {
-            const person = document.createElement('div');
-            person.className = 'walking-person walking';
+        function spawnSwimmingFishWithBubble(usdAmount, solAmount, wallet) {
+            const fish = document.createElement('div');
+            fish.className = 'swimming-fish';
             
-            // Add facial features
-            const hair = document.createElement('div');
-            hair.className = 'hair';
-            person.appendChild(hair);
+            // Random fish color
+            const randomColor = fishColors[Math.floor(Math.random() * fishColors.length)];
+            fish.classList.add(randomColor);
             
-            const eyes = document.createElement('div');
-            eyes.className = 'eyes';
-            person.appendChild(eyes);
+            // Random swimming height
+            const randomBottom = 150 + Math.random() * 300; // Between 150px and 450px from bottom
+            fish.style.bottom = randomBottom + 'px';
             
-            const mouth = document.createElement('div');
-            mouth.className = 'mouth';
-            person.appendChild(mouth);
+            // Create fish parts
+            const fishBody = document.createElement('div');
+            fishBody.className = 'fish-body';
+            fish.appendChild(fishBody);
             
-            // Add limbs
-            const armLeft = document.createElement('div');
-            armLeft.className = 'arm-left';
-            person.appendChild(armLeft);
+            const fishTail = document.createElement('div');
+            fishTail.className = 'fish-tail';
+            fishBody.appendChild(fishTail);
             
-            const armRight = document.createElement('div');
-            armRight.className = 'arm-right';
-            person.appendChild(armRight);
+            const fishEye = document.createElement('div');
+            fishEye.className = 'fish-eye';
+            fishBody.appendChild(fishEye);
             
-            const legLeft = document.createElement('div');
-            legLeft.className = 'leg-left';
-            person.appendChild(legLeft);
+            const fishFinTop = document.createElement('div');
+            fishFinTop.className = 'fish-fin-top';
+            fishBody.appendChild(fishFinTop);
             
-            const legRight = document.createElement('div');
-            legRight.className = 'leg-right';
-            person.appendChild(legRight);
+            const fishFinBottom = document.createElement('div');
+            fishFinBottom.className = 'fish-fin-bottom';
+            fishBody.appendChild(fishFinBottom);
             
-            const shoeLeft = document.createElement('div');
-            shoeLeft.className = 'shoe-left';
-            person.appendChild(shoeLeft);
+            const fishSideFin = document.createElement('div');
+            fishSideFin.className = 'fish-side-fin';
+            fishBody.appendChild(fishSideFin);
             
-            const shoeRight = document.createElement('div');
-            shoeRight.className = 'shoe-right';
-            person.appendChild(shoeRight);
+            const fishMouth = document.createElement('div');
+            fishMouth.className = 'fish-mouth';
+            fishBody.appendChild(fishMouth);
+            
+            const fishScales = document.createElement('div');
+            fishScales.className = 'fish-scales';
+            fishBody.appendChild(fishScales);
             
             // Add speech bubble
             const bubble = document.createElement('div');
@@ -1137,16 +840,16 @@
                 <div class="bubble-wallet">${shortWallet}</div>
             `;
             
-            person.appendChild(bubble);
+            fish.appendChild(bubble);
             
-            document.querySelector('.city-container').appendChild(person);
+            document.querySelector('.ocean-container').appendChild(fish);
             
-            // Remove person after animation completes
+            // Remove fish after animation completes
             setTimeout(() => {
-                if (person.parentNode) {
-                    person.parentNode.removeChild(person);
+                if (fish.parentNode) {
+                    fish.parentNode.removeChild(fish);
                 }
-            }, 12000);
+            }, 15000);
         }
 
         // Demo: Simulate purchases every 1-3 seconds for faster action
