@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ocean Experiment</title>
-    <link rel="icon" type="image/x-icon" href="fish.png">
+    <title>Prove - Launch</title>
+    <link rel="icon" type="image/x-icon" href="pfp.png">
     <style>
         * {
             margin: 0;
@@ -13,862 +13,322 @@
         }
 
         body {
-            background: linear-gradient(to bottom, #87CEEB 0%, #00BFFF 30%, #1E90FF 60%, #000080 100%);
-            color: #fff;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            overflow: hidden;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .ocean-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, #87CEEB 0%, #00BFFF 30%, #1E90FF 60%, #000080 100%);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .coral {
-            position: absolute;
-            bottom: 0;
-        }
-
-        .coral1 {
-            left: 50px;
-            width: 80px;
-            height: 150px;
-            background: linear-gradient(45deg, #FF6B35, #FF8E53);
-            border: 3px solid #000;
-            border-radius: 40px 40px 0 0;
-            clip-path: polygon(20% 100%, 0% 80%, 15% 60%, 5% 40%, 25% 20%, 10% 0%, 40% 10%, 30% 30%, 50% 15%, 60% 35%, 80% 20%, 70% 0%, 90% 15%, 85% 40%, 100% 35%, 95% 55%, 100% 75%, 80% 90%, 100% 100%);
-        }
-
-        .coral2 {
-            left: 200px;
-            width: 100px;
-            height: 200px;
-            background: linear-gradient(45deg, #E91E63, #F06292);
-            border: 3px solid #000;
-            border-radius: 50px 50px 0 0;
-            clip-path: polygon(15% 100%, 0% 85%, 20% 70%, 10% 50%, 30% 30%, 15% 10%, 25% 0%, 45% 15%, 35% 35%, 55% 20%, 65% 40%, 85% 25%, 75% 5%, 95% 20%, 90% 45%, 100% 40%, 95% 65%, 100% 85%, 85% 95%, 100% 100%);
-        }
-
-        .coral3 {
-            left: 350px;
-            width: 70px;
-            height: 120px;
-            background: linear-gradient(45deg, #9C27B0, #BA68C8);
-            border: 3px solid #000;
-            border-radius: 35px 35px 0 0;
-            clip-path: polygon(25% 100%, 5% 80%, 20% 60%, 0% 40%, 30% 20%, 15% 0%, 40% 10%, 60% 0%, 75% 20%, 100% 40%, 80% 60%, 95% 80%, 75% 100%);
-        }
-
-        .coral4 {
-            right: 300px;
-            width: 90px;
-            height: 180px;
-            background: linear-gradient(45deg, #FF9800, #FFB74D);
-            border: 3px solid #000;
-            border-radius: 45px 45px 0 0;
-            clip-path: polygon(10% 100%, 0% 75%, 25% 55%, 15% 35%, 35% 15%, 20% 0%, 50% 10%, 45% 30%, 65% 20%, 80% 0%, 100% 15%, 85% 35%, 100% 55%, 75% 75%, 100% 100%);
-        }
-
-        .coral5 {
-            right: 150px;
-            width: 110px;
-            height: 160px;
-            background: linear-gradient(45deg, #4CAF50, #81C784);
-            border: 3px solid #000;
-            border-radius: 55px 55px 0 0;
-            clip-path: polygon(20% 100%, 0% 80%, 30% 60%, 10% 40%, 40% 20%, 25% 0%, 55% 10%, 70% 0%, 85% 20%, 100% 40%, 70% 60%, 100% 80%, 80% 100%);
-        }
-
-        .coral6 {
-            right: 50px;
-            width: 85px;
-            height: 140px;
-            background: linear-gradient(45deg, #FF5722, #FF8A65);
-            border: 3px solid #000;
-            border-radius: 42px 42px 0 0;
-            clip-path: polygon(15% 100%, 0% 85%, 25% 65%, 5% 45%, 35% 25%, 20% 5%, 45% 0%, 65% 15%, 85% 0%, 100% 25%, 75% 45%, 95% 65%, 80% 85%, 100% 100%);
-        }
-
-        .seaweed {
-            position: absolute;
-            bottom: 0;
-            background: linear-gradient(to top, #2E7D32, #4CAF50);
-            border: 2px solid #000;
-            border-radius: 20px 20px 0 0;
-            animation: sway 3s ease-in-out infinite;
-        }
-
-        .seaweed1 {
-            left: 120px;
-            width: 15px;
-            height: 100px;
-            animation-delay: 0s;
-        }
-
-        .seaweed2 {
-            left: 280px;
-            width: 12px;
-            height: 80px;
-            animation-delay: 1s;
-        }
-
-        .seaweed3 {
-            right: 400px;
-            width: 18px;
-            height: 120px;
-            animation-delay: 0.5s;
-        }
-
-        .seaweed4 {
-            right: 200px;
-            width: 14px;
-            height: 90px;
-            animation-delay: 1.5s;
-        }
-
-        .seaweed5 {
-            right: 80px;
-            width: 16px;
-            height: 110px;
-            animation-delay: 2s;
-        }
-
-        @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
-
-        .bubble {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: floatUp 8s linear infinite;
-        }
-
-        .bubble1 {
-            left: 10%;
-            width: 20px;
-            height: 20px;
-            animation-delay: 0s;
-        }
-
-        .bubble2 {
-            left: 30%;
-            width: 15px;
-            height: 15px;
-            animation-delay: 2s;
-        }
-
-        .bubble3 {
-            left: 60%;
-            width: 25px;
-            height: 25px;
-            animation-delay: 4s;
-        }
-
-        .bubble4 {
-            left: 80%;
-            width: 18px;
-            height: 18px;
-            animation-delay: 6s;
-        }
-
-        .bubble5 {
-            left: 45%;
-            width: 12px;
-            height: 12px;
-            animation-delay: 1s;
-        }
-
-        .bubble6 {
-            left: 75%;
-            width: 22px;
-            height: 22px;
-            animation-delay: 3s;
-        }
-
-        @keyframes floatUp {
-            0% { 
-                bottom: -30px; 
-                opacity: 0.7;
-                transform: translateX(0);
-            }
-            50% {
-                opacity: 1;
-                transform: translateX(20px);
-            }
-            100% { 
-                bottom: 100vh; 
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-        }
-
-        .swimming-fish {
-            position: absolute;
-            bottom: 200px;
-            width: 100px;
-            height: 60px;
-            opacity: 0;
-            animation: swimAcross 15s linear;
-            z-index: 10;
-        }
-
-        .fish-body {
-            position: relative;
-            width: 60px;
-            height: 40px;
-            background: linear-gradient(45deg, #FF6B35, #FFD23F);
-            border: 3px solid #000;
-            border-radius: 50%;
-            z-index: 5;
-            transform: scaleX(1.3);
-        }
-
-        .fish-tail {
-            position: absolute;
-            right: -25px;
-            top: 8px;
-            width: 0;
-            height: 0;
-            border-left: 30px solid #FF6B35;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-right: 0;
-            z-index: 3;
-            transform: scaleX(0.8);
-        }
-
-        .fish-tail::after {
-            content: '';
-            position: absolute;
-            right: 3px;
-            top: -12px;
-            width: 0;
-            height: 0;
-            border-left: 25px solid #000;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            z-index: 2;
-        }
-
-        .fish-tail::before {
-            content: '';
-            position: absolute;
-            right: -8px;
-            top: -8px;
-            width: 0;
-            height: 0;
-            border-left: 12px solid #FF6B35;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            z-index: 4;
-        }
-
-        .fish-eye {
-            position: absolute;
-            top: 10px;
-            left: 15px;
-            width: 14px;
-            height: 14px;
-            background: #fff;
-            border: 2px solid #000;
-            border-radius: 50%;
-            z-index: 6;
-        }
-
-        .fish-eye::after {
-            content: '';
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 5px;
-            height: 5px;
-            background: #000;
-            border-radius: 50%;
-        }
-
-        .fish-fin-top {
-            position: absolute;
-            top: -12px;
-            left: 25px;
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 8px solid transparent;
-            border-bottom: 18px solid #FF6B35;
-            z-index: 4;
-            transform: rotate(-15deg);
-        }
-
-        .fish-fin-bottom {
-            position: absolute;
-            bottom: -12px;
-            left: 30px;
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 15px solid #FF6B35;
-            z-index: 4;
-            transform: rotate(15deg);
-        }
-
-        .fish-side-fin {
-            position: absolute;
-            left: 10px;
-            top: 18px;
-            width: 0;
-            height: 0;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-            border-right: 15px solid #FF6B35;
-            z-index: 4;
-            transform: rotate(-20deg);
-        }
-
-        .fish-mouth {
-            position: absolute;
-            top: 18px;
-            left: 5px;
-            width: 8px;
-            height: 4px;
-            background: #333;
-            border-radius: 50%;
-            z-index: 6;
-        }
-
-        .fish-scales {
-            position: absolute;
-            top: 15px;
-            left: 35px;
-            width: 12px;
-            height: 8px;
-            border: 2px solid rgba(0,0,0,0.3);
-            border-radius: 50%;
-            z-index: 6;
-        }
-
-        .fish-scales::after {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -8px;
-            width: 10px;
-            height: 6px;
-            border: 2px solid rgba(0,0,0,0.3);
-            border-radius: 50%;
-        }
-
-        .speech-bubble {
-            position: absolute;
-            bottom: 60px;
-            left: -80px;
-            background: #fff;
-            border: 3px solid #000;
-            border-radius: 20px;
-            padding: 12px 16px;
-            min-width: 140px;
-            max-width: 200px;
-            font-size: 11px;
-            font-weight: bold;
-            text-align: center;
-            z-index: 15;
-            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
-            animation: bubbleBounce 2s ease-in-out infinite;
-            color: #000;
-        }
-
-        .speech-bubble::before {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 12px solid transparent;
-            border-right: 12px solid transparent;
-            border-top: 15px solid #000;
-        }
-
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 12px solid #fff;
-        }
-
-        .bubble-amount-usd {
-            color: #2e7d32;
-            font-size: 14px;
-            margin-bottom: 2px;
-        }
-
-        .bubble-amount-sol {
-            color: #9c27b0;
-            font-size: 12px;
-            margin-bottom: 4px;
-        }
-
-        .bubble-wallet {
-            color: #666;
-            font-size: 8px;
-            font-family: monospace;
-            word-break: break-all;
-            line-height: 1.2;
-        }
-
-        @keyframes bubbleBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
-        }
-
-        @keyframes swimAcross {
-            0% { 
-                left: -100px; 
-                opacity: 1;
-                bottom: 200px;
-            }
-            25% {
-                bottom: 300px;
-            }
-            50% {
-                bottom: 250px;
-            }
-            75% {
-                bottom: 350px;
-            }
-            100% { 
-                left: 100vw; 
-                opacity: 1;
-                bottom: 280px;
-            }
-        }
-
-        .purchase-notification {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: #fff;
-            border: 4px solid #000;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 7px 7px 0 #000;
-            z-index: 1000;
-            opacity: 0;
-            transform: translateX(100%);
-            animation: slideInOut 8s ease-in-out;
-            max-width: 400px;
-            color: #000;
-        }
-
-        .stats-container {
-            position: fixed;
-            top: 200px;
-            right: 30px;
-            background: #fff;
-            border: 4px solid #000;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 7px 7px 0 #000;
-            z-index: 1000;
-            max-width: 300px;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            color: #000;
-        }
-
-        .stats-title {
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 15px;
-            color: #000;
-        }
-
-        .stat-item {
+        /* Header */
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            font-size: 18px;
-            font-weight: bold;
+            padding: 20px 0;
+            position: relative;
+            z-index: 100;
         }
 
-        .stat-label {
-            color: #333;
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: contain;
         }
 
-        .stat-value {
-            color: #2e7d32;
-            font-family: monospace;
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
         }
 
-        .twitter-container {
-            position: fixed;
-            top: 340px;
-            right: 30px;
-            background: #1da1f2;
-            border: 4px solid #000;
-            border-radius: 20px;
-            padding: 15px 20px;
-            box-shadow: 7px 7px 0 #000;
-            z-index: 1000;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            max-width: 300px;
-        }
-
-        .twitter-link {
-            color: #fff;
+        .nav a {
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: #9ca3af;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .twitter-link:hover {
-            color: #e1f5fe;
+        .nav a:hover {
+            color: #374151;
         }
 
-        .twitter-icon {
-            width: 24px;
-            height: 24px;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            color: #1da1f2;
+        .launch-btn {
+            background: #000;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
-        @keyframes slideInOut {
-            0% { opacity: 0; transform: translateX(100%); }
-            10% { opacity: 1; transform: translateX(0); }
-            90% { opacity: 1; transform: translateX(0); }
-            100% { opacity: 0; transform: translateX(100%); }
+        .launch-btn:hover {
+            background: #1f1f1f;
+            transform: translateY(-2px);
         }
 
-        .purchase-info {
-            display: block;
-            font-size: 18px;
-            font-weight: bold;
+        /* Main Content */
+        .main-content {
             text-align: center;
+            padding: 80px 0 120px;
+            position: relative;
         }
 
-        .amount {
-            color: #2e7d32;
-            font-size: 22px;
-            margin-bottom: 5px;
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            color: #111827;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
         }
 
-        .wallet {
-            color: #666;
-            font-size: 12px;
-            font-family: monospace;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 60px;
+            font-weight: 400;
         }
 
-        /* Different fish colors */
-        .fish-orange .fish-body { background: linear-gradient(45deg, #FF6B35, #FFD23F); }
-        .fish-orange .fish-tail { border-left-color: #FF6B35; }
-        .fish-orange .fish-tail::before { border-left-color: #FF6B35; }
-        .fish-orange .fish-fin-top, .fish-orange .fish-fin-bottom, .fish-orange .fish-side-fin { 
-            border-bottom-color: #FF6B35; 
-            border-top-color: #FF6B35; 
-            border-right-color: #FF6B35; 
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
         }
 
-        .fish-blue .fish-body { background: linear-gradient(45deg, #2196F3, #64B5F6); }
-        .fish-blue .fish-tail { border-left-color: #2196F3; }
-        .fish-blue .fish-tail::before { border-left-color: #2196F3; }
-        .fish-blue .fish-fin-top, .fish-blue .fish-fin-bottom, .fish-blue .fish-side-fin { 
-            border-bottom-color: #2196F3; 
-            border-top-color: #2196F3; 
-            border-right-color: #2196F3; 
+        .qr-btn {
+            background: #22c55e;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 18px;
         }
 
-        .fish-pink .fish-body { background: linear-gradient(45deg, #E91E63, #F48FB1); }
-        .fish-pink .fish-tail { border-left-color: #E91E63; }
-        .fish-pink .fish-tail::before { border-left-color: #E91E63; }
-        .fish-pink .fish-fin-top, .fish-pink .fish-fin-bottom, .fish-pink .fish-side-fin { 
-            border-bottom-color: #E91E63; 
-            border-top-color: #E91E63; 
-            border-right-color: #E91E63; 
+        .qr-btn:hover {
+            background: #16a34a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
         }
 
-        .fish-green .fish-body { background: linear-gradient(45deg, #4CAF50, #81C784); }
-        .fish-green .fish-tail { border-left-color: #4CAF50; }
-        .fish-green .fish-tail::before { border-left-color: #4CAF50; }
-        .fish-green .fish-fin-top, .fish-green .fish-fin-bottom, .fish-green .fish-side-fin { 
-            border-bottom-color: #4CAF50; 
-            border-top-color: #4CAF50; 
-            border-right-color: #4CAF50; 
+        /* Background Elements */
+        .bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        .fish-purple .fish-body { background: linear-gradient(45deg, #9C27B0, #BA68C8); }
-        .fish-purple .fish-tail { border-left-color: #9C27B0; }
-        .fish-purple .fish-tail::before { border-left-color: #9C27B0; }
-        .fish-purple .fish-fin-top, .fish-purple .fish-fin-bottom, .fish-purple .fish-side-fin { 
-            border-bottom-color: #9C27B0; 
-            border-top-color: #9C27B0; 
-            border-right-color: #9C27B0; 
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: #22c55e;
+            opacity: 0.15;
         }
 
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            left: 10%;
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            left: 20%;
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        .shape-4 {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 25%;
+            animation: float4 7s ease-in-out infinite;
+        }
+
+        .shape-5 {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            right: 5%;
+            animation: float5 9s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateX(30px) translateY(-20px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translateX(0) translateY(-40px) rotate(180deg) scale(0.9);
+            }
+            75% {
+                transform: translateX(-30px) translateY(-20px) rotate(270deg) scale(1.1);
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translateX(-25px) translateY(35px) rotate(120deg) scale(0.8);
+            }
+            66% {
+                transform: translateX(25px) translateY(-25px) rotate(240deg) scale(1.2);
+            }
+        }
+
+        @keyframes float3 {
+            0%, 100% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+            }
+            20% {
+                transform: translateX(40px) translateY(20px) rotate(72deg) scale(1.3);
+            }
+            40% {
+                transform: translateX(20px) translateY(-30px) rotate(144deg) scale(0.7);
+            }
+            60% {
+                transform: translateX(-20px) translateY(-10px) rotate(216deg) scale(1.1);
+            }
+            80% {
+                transform: translateX(-40px) translateY(30px) rotate(288deg) scale(0.9);
+            }
+        }
+
+        @keyframes float4 {
+            0%, 100% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateX(-50px) translateY(50px) rotate(180deg) scale(1.4);
+            }
+        }
+
+        @keyframes float5 {
+            0%, 100% {
+                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translateX(20px) translateY(-40px) rotate(90deg) scale(0.8);
+            }
+            50% {
+                transform: translateX(-30px) translateY(-20px) rotate(180deg) scale(1.2);
+            }
+            75% {
+                transform: translateX(-10px) translateY(30px) rotate(270deg) scale(0.9);
+            }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .ocean-container {
-                transform: scale(1.0) translateY(-2%);
+            .header {
+                padding: 15px 0;
+            }
+
+            .nav {
+                gap: 20px;
+            }
+
+            .nav a {
+                display: none;
+            }
+
+            .main-content {
+                padding: 60px 0 80px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .qr-btn {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .launch-btn {
+                padding: 10px 20px;
+                font-size: 14px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="ocean-container">        
-        <!-- Ocean bubbles -->
-        <div class="bubble bubble1"></div>
-        <div class="bubble bubble2"></div>
-        <div class="bubble bubble3"></div>
-        <div class="bubble bubble4"></div>
-        <div class="bubble bubble5"></div>
-        <div class="bubble bubble6"></div>
-        
-        <!-- Coral reef -->
-        <div class="coral coral1"></div>
-        <div class="coral coral2"></div>
-        <div class="coral coral3"></div>
-        <div class="coral coral4"></div>
-        <div class="coral coral5"></div>
-        <div class="coral coral6"></div>
-        
-        <!-- Seaweed -->
-        <div class="seaweed seaweed1"></div>
-        <div class="seaweed seaweed2"></div>
-        <div class="seaweed seaweed3"></div>
-        <div class="seaweed seaweed4"></div>
-        <div class="seaweed seaweed5"></div>
-        
-        <!-- Swimming fish will spawn here -->
-        
-        <!-- Purchase notifications will appear here -->
-        <div id="notifications-container"></div>
-        
-        <!-- Stats Display -->
-        <div class="stats-container">
-            <div class="stats-title">🐠 Live Stats</div>
-            <div class="stat-item">
-                <span class="stat-label">Volume:</span>
-                <span class="stat-value" id="volume-value">$0</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Buys:</span>
-                <span class="stat-value" id="buys-value">0</span>
-            </div>
-        </div>
-        
-        <!-- Twitter Link -->
-        <div class="twitter-container">
-            <a href="https://x.com/i/communities/1933283801825735104" class="twitter-link" target="_blank">
-                <div class="twitter-icon">🐠</div>
-                Follow Our X!
-            </a>
-        </div>
+    <div class="bg-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
     </div>
 
-    <script>
-        // Global counters
-        let totalVolume = 0;
-        let totalBuys = 0;
+    <div class="container">
+        <header class="header">
+            <img src="pfp.png" alt="Company Logo" class="logo">
+            <nav class="nav">
+                <a href="playbook.html">Playbook</a>
+                <a href="docs.html">Docs</a>
+                <a href="https://x.com/provedotbest" class="launch-btn">Launch Coin</a>
+            </nav>
+        </header>
 
-        // Fish color classes
-        const fishColors = ['fish-orange', 'fish-blue', 'fish-pink', 'fish-green', 'fish-purple'];
-
-        // Function to format large numbers
-        function formatNumber(num) {
-            if (num >= 1000000) {
-                return '$' + (num / 1000000).toFixed(1) + 'M';
-            } else if (num >= 1000) {
-                return '$' + (num / 1000).toFixed(1) + 'K';
-            }
-            return '$' + num.toLocaleString();
-        }
-
-        // Function to update stats display
-        function updateStats() {
-            document.getElementById('volume-value').textContent = formatNumber(totalVolume);
-            document.getElementById('buys-value').textContent = totalBuys.toLocaleString();
-        }
-
-        // Demo function to simulate memecoin purchases
-        function simulatePurchase() {
-            const usdAmounts = ['$12.50', '$50.00', '$125.75', '$8.25', '$99.99', '$250.00', '$420.69', '$15.80', '$75.30', '$185.45', '$5.99', '$33.33', '$88.88', '$177.77', '$299.50', '$69.69', '$444.44', '$25.25', '$150.00', '$199.99'];
-            const wallets = [
-                '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgHRP',
-                'BQWWFhzBdw2vKKBUX17NHeFbCoFQHfRARpdztPE2tDJ',
-                'FNnt3T7hqVDXEVP8UhXZwpgAVWQT2QXjE1h8eK9nL2m',
-                'G4KXt2CWdfg97TXJSDpbD5jBkhe82A83TZRuJosgHRP',
-                '8YWWFhzBdw2vKKBUX17NHeFbCoFQHfRARpdztPE2tDJ',
-                'C5TgY3HnVqKx8dR2FmPQW1zN7vB6eA9sL4kJ3mP8xT',
-                'D7KmR5WnXcY2bT8vN1pF6zS9eL3qJ4kH7wM2aR5uE',
-                'A9BcDeFgHiJkLmNoPqRsTuVwXyZ1234567890AbCdE',
-                'K2LmN4OpQ6RsT8UvW0XyZ2345678901234567890',
-                'F3GhI5JkL7MnO9PqR1StU3VwX5YzA7890123456789',
-                'H4IjK6LmN8OpQ0RsT2UvW4XyZ6789012345678901',
-                'L5MnO7PqR9StU1VwX3YzA5678901234567890123',
-                'P6QrS8TuV0WxY2ZaB4567890123456789012345',
-                'T7UvW9XyZ1AbC3DeF5678901234567890123456',
-                'X8YzA0BcD2EfG4HiJ6789012345678901234567',
-                'B9CdE1FgH3IjK5LmN7890123456789012345678',
-                'E0FgH2IjK4LmN6OpQ8901234567890123456789',
-                'I1JkL3MnO5PqR7StU9012345678901234567890',
-                'M2NpQ4RsT6UvW8XyZ0123456789012345678901',
-                'Q3RsT5UvW7XyZ9AbC1234567890123456789012',
-                'U4VwX6YzA8BcD0EfG2345678901234567890123',
-                'Y5ZaB7CdE9FgH1IjK3456789012345678901234',
-                'C6DeF8GhI0JkL2MnO4567890123456789012345',
-                'G7HiJ9KlM1NpQ3RsT5678901234567890123456',
-                'K8LmN0OpQ2RsT4UvW6789012345678901234567'
-            ];
+        <main class="main-content">
+            <h1 class="hero-title">Prove<br></h1>
+            <p class="hero-subtitle">Launch a coin for your project straight from pump.fun</p>
             
-            const randomUsdAmount = usdAmounts[Math.floor(Math.random() * usdAmounts.length)];
-            const randomWallet = wallets[Math.floor(Math.random() * wallets.length)];
-            
-            // Convert USD to SOL (using a simulated rate around $240 per SOL)
-            const usdValue = parseFloat(randomUsdAmount.replace('$', ''));
-            const solRate = 240 + (Math.random() * 20 - 10); // $230-$250 range
-            const solAmount = (usdValue / solRate).toFixed(3);
-            
-            // Update counters
-            totalVolume += 250; // Add $250 to volume for each purchase
-            totalBuys += 1;     // Increment buy counter
-            
-            // Update the display
-            updateStats();
-            
-            showPurchaseNotification(randomUsdAmount, randomWallet);
-            spawnSwimmingFishWithBubble(randomUsdAmount, solAmount, randomWallet);
-        }
-
-        function showPurchaseNotification(amount, wallet) {
-            const container = document.getElementById('notifications-container');
-            
-            const notification = document.createElement('div');
-            notification.className = 'purchase-notification';
-            
-            notification.innerHTML = `
-                <div class="purchase-info">
-                    <div class="amount">${amount}</div>
-                    <div class="wallet">${wallet}</div>
-                </div>
-            `;
-            
-            container.appendChild(notification);
-            
-            // Remove notification after animation completes
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 8000);
-        }
-
-        function spawnSwimmingFishWithBubble(usdAmount, solAmount, wallet) {
-            const fish = document.createElement('div');
-            fish.className = 'swimming-fish';
-            
-            // Random fish color
-            const randomColor = fishColors[Math.floor(Math.random() * fishColors.length)];
-            fish.classList.add(randomColor);
-            
-            // Random swimming height
-            const randomBottom = 150 + Math.random() * 300; // Between 150px and 450px from bottom
-            fish.style.bottom = randomBottom + 'px';
-            
-            // Create fish parts
-            const fishBody = document.createElement('div');
-            fishBody.className = 'fish-body';
-            fish.appendChild(fishBody);
-            
-            const fishTail = document.createElement('div');
-            fishTail.className = 'fish-tail';
-            fishBody.appendChild(fishTail);
-            
-            const fishEye = document.createElement('div');
-            fishEye.className = 'fish-eye';
-            fishBody.appendChild(fishEye);
-            
-            const fishFinTop = document.createElement('div');
-            fishFinTop.className = 'fish-fin-top';
-            fishBody.appendChild(fishFinTop);
-            
-            const fishFinBottom = document.createElement('div');
-            fishFinBottom.className = 'fish-fin-bottom';
-            fishBody.appendChild(fishFinBottom);
-            
-            const fishSideFin = document.createElement('div');
-            fishSideFin.className = 'fish-side-fin';
-            fishBody.appendChild(fishSideFin);
-            
-            const fishMouth = document.createElement('div');
-            fishMouth.className = 'fish-mouth';
-            fishBody.appendChild(fishMouth);
-            
-            const fishScales = document.createElement('div');
-            fishScales.className = 'fish-scales';
-            fishBody.appendChild(fishScales);
-            
-            // Add speech bubble
-            const bubble = document.createElement('div');
-            bubble.className = 'speech-bubble';
-            
-            // Truncate wallet address for display
-            const shortWallet = wallet.substring(0, 8) + '...' + wallet.substring(wallet.length - 6);
-            
-            bubble.innerHTML = `
-                <div class="bubble-amount-usd">${usdAmount}</div>
-                <div class="bubble-amount-sol">${solAmount} SOL</div>
-                <div class="bubble-wallet">${shortWallet}</div>
-            `;
-            
-            fish.appendChild(bubble);
-            
-            document.querySelector('.ocean-container').appendChild(fish);
-            
-            // Remove fish after animation completes
-            setTimeout(() => {
-                if (fish.parentNode) {
-                    fish.parentNode.removeChild(fish);
-                }
-            }, 15000);
-        }
-
-        // Demo: Simulate purchases every 1-3 seconds for faster action
-        function startDemo() {
-            const randomDelay = Math.random() * 2000 + 1000; // 1-3 seconds
-            setTimeout(() => {
-                simulatePurchase();
-                startDemo(); // Continue the demo
-            }, randomDelay);
-        }
-
-        // Initialize stats display
-        updateStats();
-        
-        // Start the demo
-        startDemo();
-        
-        // You can also manually trigger purchases for testing
-        // simulatePurchase();
-    </script>
+            <div class="cta-buttons">
+                <a href="fees.html"class="qr-btn">
+                    <span>💰</span>
+                    Collect Fees
+                </a>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
