@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prove - Launch</title>
-    <link rel="icon" type="image/x-icon" href="pfp.png">
+    <title>LIMITED - The Psychology of Scarcity Coin</title>
     <style>
         * {
             margin: 0;
@@ -13,9 +12,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #ffffff;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f5f5f5 100%);
+            color: #212121;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
@@ -26,309 +26,778 @@
         }
 
         /* Header */
-        .header {
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(33, 33, 33, 0.1);
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            position: relative;
-            z-index: 100;
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            object-fit: contain;
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #212121, #424242, #616161);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .nav {
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(33, 33, 33, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(33, 33, 33, 0.8)); }
+        }
+
+        .nav-links {
             display: flex;
-            gap: 40px;
-            align-items: center;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .nav a {
+        .nav-links a {
+            color: #212121;
             text-decoration: none;
-            color: #9ca3af;
-            font-weight: 500;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
-        .nav a:hover {
-            color: #374151;
+        .nav-links a:hover {
+            color: #424242;
         }
 
-        .launch-btn {
-            background: #000;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .launch-btn:hover {
-            background: #1f1f1f;
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        .main-content {
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 80px 0 120px;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            color: #111827;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #212121, #424242, #616161);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease-out;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 60px;
-            font-weight: 400;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #757575;
+            animation: slideUp 1s ease-out 0.3s both;
         }
 
-        /* CTA Buttons */
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 80px;
+        .tagline {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #424242;
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.6s both;
         }
 
-        .qr-btn {
-            background: #22c55e;
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #212121, #424242);
             color: white;
-            padding: 20px 40px;
-            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 1s ease-out 0.9s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(33, 33, 33, 0.4);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #424242;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 85%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
+        .particle:nth-child(4) { top: 30%; left: 70%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #212121, #424242);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Concept Section */
+        .concept {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(33, 33, 33, 0.2);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .concept-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(33, 33, 33, 0.3);
+            color: #212121;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(33, 33, 33, 0.2);
+        }
+
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #424242;
+        }
+
+        /* Video Lessons Section */
+        .lessons {
+            background: rgba(245, 245, 245, 0.5);
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .lesson-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(33, 33, 33, 0.3);
+            cursor: pointer;
+        }
+
+        .lesson-card:hover {
+            transform: scale(1.05);
+        }
+
+        .lesson-card:not(:last-child):hover {
+            box-shadow: 0 10px 30px rgba(33, 33, 33, 0.2);
+        }
+
+        .lesson-card:last-child {
+            cursor: default;
+        }
+
+        .lesson-card:last-child:hover {
+            transform: none;
+        }
+
+        .lesson-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #212121, #424242);
             display: flex;
             align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 18px;
+            justify-content: center;
+            position: relative;
         }
 
-        .qr-btn:hover {
-            background: #16a34a;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
 
-        /* Background Elements */
-        .bg-elements {
-            position: absolute;
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid #333;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-left: 3px;
+        }
+
+        .lesson-content {
+            padding: 1.5rem;
+            color: #212121;
+        }
+
+        .lesson-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #424242;
+        }
+
+        .lesson-description {
+            color: #757575;
+            font-size: 0.9rem;
+        }
+
+        /* Price Chart Mockup */
+        .chart-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid rgba(33, 33, 33, 0.3);
+        }
+
+        .price-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00c853;
+            margin-bottom: 1rem;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(45deg, rgba(33, 33, 33, 0.1), rgba(66, 66, 66, 0.1));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #757575;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(33, 33, 33, 0.95);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            color: #ffffff;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            overflow: hidden;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
         }
 
-        .floating-shape {
+        .video-modal-content {
             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 900px;
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-modal-header {
+            background: #212121;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-modal-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
             border-radius: 50%;
-            background: #22c55e;
-            opacity: 0.15;
+            transition: background 0.3s ease;
         }
 
-        .shape-1 {
-            width: 200px;
-            height: 200px;
-            top: 20%;
-            left: 10%;
-            animation: float1 8s ease-in-out infinite;
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .shape-2 {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 15%;
-            animation: float2 10s ease-in-out infinite;
+        .video-container {
+            padding: 2rem;
+            background: #000;
         }
 
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            top: 80%;
-            left: 20%;
-            animation: float3 12s ease-in-out infinite;
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            outline: none;
+            background: #000;
         }
 
-        .shape-4 {
-            width: 80px;
-            height: 80px;
-            top: 30%;
-            right: 25%;
-            animation: float4 7s ease-in-out infinite;
+        .video-container video::-webkit-media-controls-panel {
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .shape-5 {
-            width: 120px;
-            height: 120px;
-            top: 70%;
-            right: 5%;
-            animation: float5 9s ease-in-out infinite;
+        .video-container video::-webkit-media-controls-play-button,
+        .video-container video::-webkit-media-controls-volume-slider,
+        .video-container video::-webkit-media-controls-timeline {
+            filter: invert(1);
         }
 
-        @keyframes float1 {
-            0%, 100% {
-                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-            }
-            25% {
-                transform: translateX(30px) translateY(-20px) rotate(90deg) scale(1.1);
-            }
-            50% {
-                transform: translateX(0) translateY(-40px) rotate(180deg) scale(0.9);
-            }
-            75% {
-                transform: translateX(-30px) translateY(-20px) rotate(270deg) scale(1.1);
-            }
-        }
-
-        @keyframes float2 {
-            0%, 100% {
-                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-            }
-            33% {
-                transform: translateX(-25px) translateY(35px) rotate(120deg) scale(0.8);
-            }
-            66% {
-                transform: translateX(25px) translateY(-25px) rotate(240deg) scale(1.2);
-            }
-        }
-
-        @keyframes float3 {
-            0%, 100% {
-                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-            }
-            20% {
-                transform: translateX(40px) translateY(20px) rotate(72deg) scale(1.3);
-            }
-            40% {
-                transform: translateX(20px) translateY(-30px) rotate(144deg) scale(0.7);
-            }
-            60% {
-                transform: translateX(-20px) translateY(-10px) rotate(216deg) scale(1.1);
-            }
-            80% {
-                transform: translateX(-40px) translateY(30px) rotate(288deg) scale(0.9);
-            }
-        }
-
-        @keyframes float4 {
-            0%, 100% {
-                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-            }
-            50% {
-                transform: translateX(-50px) translateY(50px) rotate(180deg) scale(1.4);
-            }
-        }
-
-        @keyframes float5 {
-            0%, 100% {
-                transform: translateX(0) translateY(0) rotate(0deg) scale(1);
-            }
-            25% {
-                transform: translateX(20px) translateY(-40px) rotate(90deg) scale(0.8);
-            }
-            50% {
-                transform: translateX(-30px) translateY(-20px) rotate(180deg) scale(1.2);
-            }
-            75% {
-                transform: translateX(-10px) translateY(30px) rotate(270deg) scale(0.9);
-            }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .header {
-                padding: 15px 0;
+            .video-modal-content {
+                width: 95%;
+                margin: 1rem;
             }
-
-            .nav {
-                gap: 20px;
+            
+            .video-modal-header {
+                padding: 1rem;
             }
+            
+            .video-modal-title {
+                font-size: 1rem;
+            }
+            
+            .video-container {
+                padding: 1rem;
+            }
+        }
 
-            .nav a {
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #616161;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #e0e0e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #bdbdbd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
                 display: none;
             }
 
-            .main-content {
-                padding: 60px 0 80px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                gap: 15px;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
 
-            .qr-btn {
-                width: 100%;
-                max-width: 320px;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
+            .tagline {
+                font-size: 1.5rem;
             }
 
-            .launch-btn {
-                padding: 10px 20px;
-                font-size: 14px;
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .concept {
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-elements">
-        <div class="floating-shape shape-1"></div>
-        <div class="floating-shape shape-2"></div>
-        <div class="floating-shape shape-3"></div>
-        <div class="floating-shape shape-4"></div>
-        <div class="floating-shape shape-5"></div>
-    </div>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">LIMITED</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#lessons">Lessons</a></li>
+                <li><a href="https://x.com/LimitedOnSol" target="_blank" style="font-size: 1.2rem;">𝕏</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <header class="header">
-            <img src="pfp.png" alt="Company Logo" class="logo">
-            <nav class="nav">
-                <a href="playbook.html">Playbook</a>
-                <a href="docs.html">Docs</a>
-                <a href="https://x.com/provedotbest" class="launch-btn">Launch Coin</a>
-            </nav>
-        </header>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <div class="hero-content">
+            <h1>LIMITED</h1>
+            <p class="hero-subtitle">The Psychology of Scarcity Cryptocurrency</p>
+            <p class="tagline">"The higher it goes, the more you'll want it"</p>
+            <a href="#concept" class="cta-button">Learn the Psychology</a>
+        </div>
+    </section>
 
-        <main class="main-content">
-            <h1 class="hero-title">Prove<br></h1>
-            <p class="hero-subtitle">Launch a coin for your project straight from pump.fun</p>
+    <!-- Concept Section -->
+    <section id="concept" class="section">
+        <div class="container">
+            <h2 class="section-title">The LIMITED Concept</h2>
             
-            <div class="cta-buttons">
-                <a href="fees.html"class="qr-btn">
-                    <span>💰</span>
-                    Collect Fees
-                </a>
+            <div class="concept">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 2rem; color: #424242;">
+                    Understanding Human Psychology in Crypto
+                </h3>
+                
+                <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem; color: #757575;">
+                    LIMITED exploits a fundamental aspect of human psychology: the scarcity principle. 
+                    As our value increases, demand intensifies, creating a powerful psychological feedback loop 
+                    that drives continued growth and desire.
+                </p>
+
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <div class="concept-icon">📈</div>
+                        <h4>Rising Value</h4>
+                        <p>As LIMITED's price increases, it becomes more desirable, not less. This defies traditional economic logic and taps into deep psychological triggers.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-icon">🧠</div>
+                        <h4>Scarcity Psychology</h4>
+                        <p>Humans naturally desire what appears limited or increasingly valuable. LIMITED harnesses this fundamental psychological principle.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-icon">🔄</div>
+                        <h4>Feedback Loop</h4>
+                        <p>Higher prices create more demand, which creates higher prices. This self-reinforcing cycle is the core of LIMITED's design.</p>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-icon">⚡</div>
+                        <h4>FOMO Effect</h4>
+                        <p>Fear of Missing Out intensifies as prices rise, creating urgency and driving rapid adoption among investors.</p>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
+    </section>
+
+    <!-- Video Lessons Section -->
+    <section id="lessons" class="section lessons">
+        <div class="container">
+            <h2 class="section-title">Educational Video Lessons</h2>
+            
+            <p style="text-align: center; font-size: 1.2rem; color: #757575; margin-bottom: 3rem;">
+                Learn the psychology behind LIMITED with our comprehensive video course series
+            </p>
+
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <div class="lesson-thumbnail">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="lesson-content">
+                        <h4 class="lesson-title">Lesson 1: Introduction to Scarcity Psychology</h4>
+                        <p class="lesson-description">
+                            Discover the fundamental psychological principles that make LIMITED unique. 
+                            Learn why humans are wired to desire what becomes more valuable.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-thumbnail">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="lesson-content">
+                        <h4 class="lesson-title">Lesson 2: The Feedback Loop Mechanism</h4>
+                        <p class="lesson-description">
+                            Understanding how rising prices create increased demand, and how this 
+                            self-reinforcing cycle drives continuous growth.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-thumbnail">
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="lesson-content">
+                        <h4 class="lesson-title">Lesson 3: FOMO and Market Psychology</h4>
+                        <p class="lesson-description">
+                            Explore how Fear of Missing Out drives market behavior and creates 
+                            urgency in cryptocurrency investments.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lesson-card" style="opacity: 0.7;">
+                    <div class="lesson-thumbnail" style="background: linear-gradient(135deg, #9e9e9e, #757575); position: relative;">
+                        <div style="color: white; font-size: 1.2rem; font-weight: bold;">📤</div>
+                    </div>
+                    <div class="lesson-content">
+                        <h4 class="lesson-title" style="color: #9e9e9e;">Uploading Soon</h4>
+                        <p class="lesson-description" style="color: #bdbdbd;">
+                            More educational content coming soon! Stay tuned for additional lessons 
+                            on advanced psychology and investment strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LIMITED</h3>
+                    <p style="color: #e0e0e0;">
+                        The cryptocurrency that harnesses human psychology to create sustainable growth 
+                        through the power of scarcity and desire.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#concept">The Concept</a>
+                    <a href="#lessons">Video Lessons</a>
+                    <a href="#">Whitepaper</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <a href="https://x.com/YOUR_USERNAME" target="_blank" style="font-size: 1.1rem; font-weight: bold;">𝕏 Follow on X</a>
+                    <a href="#">Discord</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">Reddit</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#">Documentation</a>
+                    <a href="#">API</a>
+                    <a href="#">Support</a>
+                    <a href="#">Blog</a>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 2rem; color: #e0e0e0;">
+                <p>&copy; 2025 LIMITED Cryptocurrency. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    "The higher it goes, the more you'll want it" - Experience the psychology of LIMITED
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h3 id="videoTitle" class="video-modal-title">Video Lesson</h3>
+                <button class="close-button" onclick="closeVideo()">✕</button>
+            </div>
+            <div class="video-container">
+                <video id="videoPlayer" controls controlsList="nodownload" preload="metadata">
+                    <source id="videoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.concept-card, .lesson-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Video Management Functions
+        const videoPaths = {
+            'lesson1': 'lesson1.mp4', // Put your MP4 file path here
+            'lesson2': 'lesson2.mp4', // Put your MP4 file path here  
+            'lesson3': 'lesson3.mp4'  // Put your MP4 file path here
+        };
+
+        function openVideo(lessonKey, title) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            const videoSource = document.getElementById('videoSource');
+            const videoTitle = document.getElementById('videoTitle');
+            
+            const videoPath = videoPaths[lessonKey];
+            if (videoPath) {
+                videoSource.src = videoPath;
+                video.load(); // Reload the video element with new source
+                videoTitle.textContent = title;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Auto-play the video
+                video.play().catch(e => {
+                    console.log('Auto-play prevented by browser:', e);
+                });
+            }
+        }
+
+        function closeVideo() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('videoPlayer');
+            
+            video.pause();
+            video.currentTime = 0; // Reset video to beginning
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideo();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideo();
+            }
+        });
+
+        // Add click handlers for lesson videos
+        document.querySelectorAll('.lesson-card').forEach((card, index) => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.lesson-title').textContent;
+                
+                // Don't open video for "Uploading Soon" card
+                if (title.includes('Uploading Soon')) {
+                    return;
+                }
+                
+                // Map lesson cards to video keys
+                const lessonKeys = ['lesson1', 'lesson2', 'lesson3'];
+                const lessonKey = lessonKeys[index];
+                
+                if (lessonKey) {
+                    openVideo(lessonKey, title);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
